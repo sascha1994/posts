@@ -3,6 +3,7 @@ from functions import add_from_json
 
 loader_blueprint = Blueprint('loader_blueprint', __name__)
 
+
 @loader_blueprint.route("/post", methods=["GET", "POST"])
 def page_post_form():
     return render_template('post_form.html')
@@ -17,6 +18,6 @@ def page_post_upload():
     content = request.form['content']
     add_from_json(image, content)
     try:
-        return render_template('post_uploaded.html', content = content, image = image)
+        return render_template('post_uploaded.html', content=content, image=image)
     except:
         return 'ошибка загрузки'
